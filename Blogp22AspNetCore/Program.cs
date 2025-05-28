@@ -26,15 +26,25 @@ namespace Blogp22AspNetCore
 
 			app.UseAuthorization();
 
-			app.MapControllerRoute(
-				name: "default",
-				pattern: "{controller=Home}/{action=Index}/{id?}"
-			);
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area?}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
 
-			// htts://mydomain.ru/Home/Index
-			// htts://mydomain.ru/Home/Privacy
+   //         app.MapControllerRoute(
+			//	name: "default",
+			//	pattern: "{controller=Home}/{action=Index}/{id?}"
+			//);
 
-			app.Run();
+
+
+            // htts://mydomain.ru/Home/Index
+            // htts://mydomain.ru/Home/Privacy
+
+            app.Run();
 		}
 	}
 }
