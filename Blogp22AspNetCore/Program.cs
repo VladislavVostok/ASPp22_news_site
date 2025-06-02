@@ -1,10 +1,32 @@
+/*
+ * Пакеты nuget для работы приложения:
+ 
+		Npgsql.EntityFrameworkCore.PostgreSQL
+
+ */
+
+using Blogp22AspNetCore.Models.Settings;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 namespace Blogp22AspNetCore
 {
 	public class Program
 	{
 		public static void Main(string[] args)
 		{
-			var builder = WebApplication.CreateBuilder(args);
+
+			var config = new ConfigurationBuilder()
+				.AddJsonFile("appsettings.json", optional: true)
+				.Build();
+
+
+            var builder = WebApplication.CreateBuilder(args);
+
+			builder.Services.AddDbContext<BlogDBContext>(options => options.UseNpgsql
+						(
+							builder.Configuration.GetConnectionString("CSPostgres")
+						));
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
