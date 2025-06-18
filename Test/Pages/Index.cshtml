@@ -1,14 +1,29 @@
-﻿@page
+﻿
 
-@model IndexModel
+@page 
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RazorPagesApp.Pages.IndexModel
+ 
+<h2>@Model.Message</h2>
+<form method="post" asp-antiforgery="true">
+    <p>
+        <label asp-for="Product.Name">Название</label><br />
+        <input type="text" asp-for="Product.Name" />
+    </p>
+    <p>
+        <label asp-for="Product.Price">Цена</label><br />
+        <input asp-for="Product.Price" />
+    </p>
+    <p>
+        <label asp-for="Product.CompanyId">Производитель</label><br />
+        <select asp-for="Product.CompanyId" asp-items="Model.Companies"></select>
+    </p>
+    <input type="submit" value="Отправить" />
+</form>
 
-@{
-    ViewData["Title"] = "Home page";
-}
-
-
+@* 
 <div id="score">Счёт: 0</div>
-<canvas id="gameCanvas"></canvas>
+<canvas id="gameCanvas"></canvas> *@
 
 
 @* @section Scripts{

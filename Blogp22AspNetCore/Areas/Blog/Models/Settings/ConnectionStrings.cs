@@ -1,4 +1,4 @@
-﻿namespace Blogp22AspNetCore.Models.Settings
+﻿namespace Blogp22AspNetCore.Areas.Blog.Models.Settings
 {
     public class ConnectionStrings
     {

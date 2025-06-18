@@ -5,13 +5,14 @@
 
  */
 
-using Blogp22AspNetCore.Models.Settings;
+using Blogp22AspNetCore.Areas.Blog.Models.Settings;
+using Blogp22AspNetCore.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+
 
 namespace Blogp22AspNetCore
 {
-	public class Program
+    public class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -30,6 +31,7 @@ namespace Blogp22AspNetCore
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+			builder.Services.AddScoped<ISome, Some>();
 
 			var app = builder.Build();
 
@@ -52,11 +54,11 @@ namespace Blogp22AspNetCore
             {
                 endpoints.MapControllerRoute(
                   name: "areas",
-                  pattern: "{area?}/{controller=Home}/{action=Index}/{id?}"
+                  pattern: "{area=Blog}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
 
-   //         app.MapControllerRoute(
+			//app.MapControllerRoute(
 			//	name: "default",
 			//	pattern: "{controller=Home}/{action=Index}/{id?}"
 			//);

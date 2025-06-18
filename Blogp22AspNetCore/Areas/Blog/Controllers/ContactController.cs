@@ -5,9 +5,9 @@ namespace Blogp22AspNetCore.Areas.Blog.Controllers
     public class ContactController : Controller
     {
 
-        [Route("{area}/{action}")]
+        [Route("{area}/{controller}/{action}")]
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Contact()
         {
             return View();
         }
