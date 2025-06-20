@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
 {
@@ -13,24 +13,26 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
 
     }
 
-    public class User : Base
+    public class User : IdentityUser
     {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public DateTime? LastLogin { get; set; }
         public ICollection<Article> Articles { get; set; }
 
     }
 
     public class Article : Base
     {
+        [Required]
+        [StringLength(100)]
         public string Title { get; set; }
-        public string Content { get; set; }
+		[Required]
+		public string Content { get; set; }
         public string CategotyMenu { get; set; }
         public bool IsPublished { get; set; }
-        public int AuthorId { get; set; }
-        public User Author { get; set; }
+
+		[Required]
+		public string Slug { get; set; }
+		public int UserId { get; set; }
+        public User User { get; set; }
 
         public ICollection<ArticleTag> ArticlesTags { get; set; }
 
@@ -38,9 +40,13 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
     }
 
     public class Tag : Base {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Slug { get; set; }
+		[Required]
+        [StringLength(50)]
+		public string Name { get; set; }
+		[Required]
+		public string Description { get; set; }
+		[Required]
+		public string Slug { get; set; }
 
         public ICollection<ArticleTag> ArticleTags { get; set; }
 
@@ -58,8 +64,12 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
     public class MenuItem : Base
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Url { get; set; }
+		[Required]
+        [StringLength(50)]
+		public string Title { get; set; }
+		[Required]
+        [StringLength(50)]
+		public string Url { get; set; }
         public int? ParentId { get; set; }
         public int Order { get; set; }
         public bool IsActive { get; set; } = true;

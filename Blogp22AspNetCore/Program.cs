@@ -31,7 +31,7 @@ namespace Blogp22AspNetCore
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
-			builder.Services.AddScoped<ISome, Some>();
+			builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
 			var app = builder.Build();
 

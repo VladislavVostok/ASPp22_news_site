@@ -1,0 +1,71 @@
+﻿@model Blogp22AspNetCore.Areas.Blog.Models.BlogModels.Article
+
+@{
+    ViewData["Title"] = "todo СДЕЛАТЬ НАЗВАНИЕ СТАТЬИ";
+    Layout = "_WithoutCarousel";
+}
+
+        <div class="single_page">
+
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">Technology</a></li>
+                <li class="active">Mobile</li>
+            </ol>
+
+            <h1>@Model.Title</h1>
+
+            <div class="post_commentbox"> 
+                <a href="#"><i class="fa fa-user"></i>@Model.User.UserName</a> 
+                <span>
+                    <i class="fa fa-calendar"></i>
+                    @Model.CreateAt.ToString("dd MMMM yyyy")
+                    </span> 
+                    <a href="#">
+                        <i class="fa fa-tags"></i>
+                        Technology
+                    </a> 
+            </div>
+
+            <div class="single_page_content">
+                <img class="img-center" src="@Url.Content("~/images/single_post_img.jpg")" alt="">
+                <p>@Model.Content</p>
+                @foreach (var tag in Model.ArticlesTags)
+                {
+                    <span class="badge bg-secondary">@tag.Tag.Name</span>
+                }
+
+            </div>
+            <div class="social_link">
+                <ul class="sociallink_nav">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+            <div class="related_post">
+                <h2>Related Post <i class="fa fa-thumbs-o-up"></i></h2>
+                <ul class="spost_nav wow fadeInDown animated">
+                    <li>
+                        <div class="media">
+                            <a class="media-left" href="single_page.html"> <img src="@Url.Content("~/images/post_img1.jpg")" alt=""> </a>
+                            <div class="media-body"> <a class="catg_title" href="single_page.html"> Aliquam malesuada diam eget turpis varius</a> </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="media">
+                            <a class="media-left" href="single_page.html"> <img src="@Url.Content("~/images/post_img2.jpg")" alt=""> </a>
+                            <div class="media-body"> <a class="catg_title" href="single_page.html"> Aliquam malesuada diam eget turpis varius</a> </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="media">
+                            <a class="media-left" href="single_page.html"> <img src="@Url.Content("~/images/post_img1.jpg")" alt=""> </a>
+                            <div class="media-body"> <a class="catg_title" href="single_page.html"> Aliquam malesuada diam eget turpis varius</a> </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>

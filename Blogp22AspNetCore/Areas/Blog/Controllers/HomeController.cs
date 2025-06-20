@@ -10,10 +10,10 @@ namespace Blogp22AspNetCore.Areas.Blog.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ISome _some;
+        private readonly IArticleRepository _some;
 
         
-        public HomeController(ILogger<HomeController> logger, ISome some)
+        public HomeController(ILogger<HomeController> logger, IArticleRepository some)
         {
             _logger = logger;
             _some = some;

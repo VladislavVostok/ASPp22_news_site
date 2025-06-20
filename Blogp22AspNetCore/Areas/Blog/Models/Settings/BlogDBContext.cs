@@ -17,10 +17,10 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.Settings
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Article>()
-                .HasOne(a => a.Author)
-                .WithMany(u => u.Articles)
-                .HasForeignKey(a => a.AuthorId);
+            //modelBuilder.Entity<Article>()
+            //    .HasOne(a => a.User)
+            //    .WithMany(u => u.Articles)
+            //    .HasForeignKey(a => a.UserId);
 
 
             modelBuilder.Entity<ArticleTag>()

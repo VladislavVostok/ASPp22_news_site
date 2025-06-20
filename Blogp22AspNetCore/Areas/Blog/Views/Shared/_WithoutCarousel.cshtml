@@ -28,10 +28,9 @@
                     <div class="header_top">
                         <div class="header_top_left">
                             <ul class="top_nav">
-                                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-
-
+                                <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li><a asp-area="Blog" asp-controller="Article" asp-action="Index">Blog</a></li>
+                                <li><a asp-area="Blog" asp-controller="Home" asp-action="Contact">Contact</a></li>
                             </ul>
                         </div>
                         <div class="header_top_right">
