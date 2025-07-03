@@ -1,5 +1,4 @@
-﻿using Blogp22AspNetCore.Areas.Blog.Models.BlogModels;
-using Blogp22AspNetCore.Areas.Blog.Models.Settings;
+﻿using Blogp22AspNetCore.Areas.Blog.Models.Settings;
 using Blogp22AspNetCore.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

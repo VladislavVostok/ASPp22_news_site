@@ -62,6 +62,18 @@ namespace Blogp22AspNetCore
 			builder.Services.AddControllersWithViews();
 			builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
+			builder.Services.AddCors(options =>
+			{
+				options.AddPolicy("AllowReactDev",
+					policy =>
+					{
+						policy.WithOrigins("http://localhost:5173")
+						.AllowAnyHeader()
+						.AllowAnyMethod();
+					});
+			});
+
+
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
@@ -78,6 +90,8 @@ namespace Blogp22AspNetCore
 			app.UseRouting();
 
 			app.UseAuthorization();
+			app.UseAuthentication();
+			app.UseCors("AllowReactDev");
 
             app.UseEndpoints(endpoints =>
             {

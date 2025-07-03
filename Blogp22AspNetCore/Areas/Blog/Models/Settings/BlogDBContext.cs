@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Blogp22AspNetCore.Areas.Blog.Models.BlogModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
-using Blogp22AspNetCore.Areas.Blog.Models.BlogModels;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Blogp22AspNetCore.Areas.Blog.Models.Settings

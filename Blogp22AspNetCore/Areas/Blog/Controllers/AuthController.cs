@@ -1,6 +1,5 @@
 ﻿using Blogp22AspNetCore.Areas.Blog.Models.BlogModels;
 using Blogp22AspNetCore.Areas.Blog.Models.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -10,9 +9,6 @@ using System.Text;
 
 namespace Blogp22AspNetCore.Areas.Blog.Controllers
 {
-
-
-
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -82,6 +78,5 @@ namespace Blogp22AspNetCore.Areas.Blog.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
     }
 }
