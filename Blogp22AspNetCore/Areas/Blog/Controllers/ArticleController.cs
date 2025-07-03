@@ -19,6 +19,7 @@ namespace Blogp22AspNetCore.Areas.Blog.Controllers
         }
 
         [HttpGet]
+        //[Authorize]
 		[Route("{area}/{controller}/{action}")]
 		public async Task<ActionResult> Index()
         {

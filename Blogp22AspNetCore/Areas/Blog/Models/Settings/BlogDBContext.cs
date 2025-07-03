@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Blogp22AspNetCore.Areas.Blog.Models.BlogModels;
+
 
 namespace Blogp22AspNetCore.Areas.Blog.Models.Settings
 {
-    public class BlogDBContext : DbContext
+    public class BlogDBContext : IdentityDbContext<AppUser>
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<AppUser> Users { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<ArticleTag> ArticleTags { get; set; }
@@ -16,13 +19,6 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.Settings
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            //modelBuilder.Entity<Article>()
-            //    .HasOne(a => a.User)
-            //    .WithMany(u => u.Articles)
-            //    .HasForeignKey(a => a.UserId);
-
-
             modelBuilder.Entity<ArticleTag>()
                 .HasKey(at => new { at.ArticleId, at.TagId });
 

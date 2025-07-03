@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
 {
-
-
     public class Base
     {
         public int Id { get; set; }
@@ -13,10 +11,9 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
 
     }
 
-    public class User : IdentityUser
+    public class AppUser : IdentityUser
     {
         public ICollection<Article> Articles { get; set; }
-
     }
 
     public class Article : Base
@@ -32,7 +29,7 @@ namespace Blogp22AspNetCore.Areas.Blog.Models.BlogModels
 		[Required]
 		public string Slug { get; set; }
 		public int UserId { get; set; }
-        public User User { get; set; }
+        public AppUser User { get; set; }
 
         public ICollection<ArticleTag> ArticlesTags { get; set; }
 
