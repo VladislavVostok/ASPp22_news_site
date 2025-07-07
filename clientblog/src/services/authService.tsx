@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { User} from "../types";
 
-const API_URL = "https://localhost:7046/api/Auth/";
+const API_URL = "http://localhost:5000/api/Auth/";
 
 export const login = async (email: string, password: string): Promise<User> => {
 
